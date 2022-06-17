@@ -1,0 +1,50 @@
+<!-- Template page: offers three sections to visualize a 3 steps workflow.-->
+
+{% extends "masterPage.html" %}
+
+{% block content %}
+<div class="row">
+    <!-- Left Rail -->
+    <div class="col-xl-3"></div>
+
+    <!-- Middle Rail -->
+    <div class="col-xl-6">
+        <div class="section" >
+            <div class="panel panel--loose panel--raised base-margin-bottom">
+                <div class="section">
+                    <div class="panel panel--loose panel--raised base-margin-bottom" style="text-align:center">
+                        <div class="responsive-table">
+                            <table class="table table--lined table--selectable table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center"> Date </th>
+                                        <th class="text-center"> Site/Camera </th>
+                                        <th class="text-center"> Time </th>
+                                        <th class="text-center"> Recap Image </th>
+                                        <th class="text-center"> Link to video </th>
+                                    </tr>
+                                </thead>
+                
+                                <tbody>
+                                {% for alert in alerts %}
+                                <tr>
+                                    <td class="text-center">{{alert.date}}</td>
+                                    <td class="text-center">{{alert.site_camera}}</td>
+                                    <td class="text-center">{{alert.time}}</td>
+                                    <td class="text-center"><img src="{{url_for('static', filename='images/recap_images/')}}{{alert.recap_image}}" width="100"></td>
+                                    <td class="text-center"><a href="{{alert.video_url}}">Click here for video</a></td>
+                                </tr>
+                                {%endfor%}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Rail -->
+    <div class="col-xl-3"></div>
+</div>
+{%  endblock %}

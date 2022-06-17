@@ -1,0 +1,4 @@
+static/images/recap_images/*
+!static/images/recap_images/.gitkeep
+*.DS_Store
+*.db
